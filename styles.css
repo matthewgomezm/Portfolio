@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=TASA+Explorer:wght@400..800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'TASA Explorer', sans-serif;
+}
+
+body{
+    height: 100%;
+    background: #4f4c46e6;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0 50px;
+}
+
+.navbar h1{
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.navbar ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    text-decoration: none;
+    color: #ffffff
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: #f2f2f2;
+    font-weight: 600;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover{
+    color: #bf9a9a;
+}
+
+.contact-button{
+    padding: 10px 20px;
+    background: #464040;
+    color: #c8bcbc;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+.contact-button:hover{
+    background: #bf9a9a;
+    color: #ffffff;
+}
