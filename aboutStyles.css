@@ -21,15 +21,12 @@ body{
     justify-content: space-between;
     height: 80px;
     padding: 0 50px;
-}
-
-.navbar h1{
     color: #ffffff;
     font-weight: 700;
     font-size: 32px;
 }
 
-.navbar ul{
+.navbar li{
     list-style: none;
     display: flex;
     align-items: center;
@@ -38,7 +35,7 @@ body{
     color: #ffffff
 }
 
-.navbar ul li a{
+.navbar li a{
     text-decoration: none;
     color: #f2f2f2;
     font-weight: 600;
@@ -46,10 +43,9 @@ body{
     transition: color 0.3s ease;
 }
 
-.navbar ul li a:hover{
+.navbar li a:hover{
     color: #bf9a9a;
 }
-
 .contact-button{
     padding: 10px 20px;
     background: #464040;
@@ -57,34 +53,43 @@ body{
     border-radius: 5px;
     text-decoration: none;
     font-weight: 600;
-    }
+}
+
 .contact-button:hover{
     background: #956060;
     color: #ffffff;
 }
 
-.intro{
-    text-align: center;
-    color: #ffffff;
-    margin-top: 100px;
-    animation
+.aboutPicture {
+    display: flex;
+    justify-content: left;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+.profile-pic {
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes introText{
-    0%{
+@keyframes pictureIntro {
+    from {
         opacity: 0;
         transform: translateX(-20px);
     }
-    100%{
+    to {
         opacity: 1;
         transform: translateX(0);
     }
 }
 
-.IntroText{
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 20px;
-    animation: introText 2s ease-in-out;
-    animation-fill-mode: forwards;
+.profile-pic {
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+    /* animation */
+    animation: pictureIntro 0.8s ease-out forwards;
 }
