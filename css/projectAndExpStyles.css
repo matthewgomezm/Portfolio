@@ -190,3 +190,55 @@ body{
     opacity: 0;
     animation: projectIntro 0.8s ease-out forwards;
 }
+
+.ExperienceSection{
+    margin: 80px auto;
+    max-width: 900px;
+    padding: 0 40px;
+    color: #ffffff;
+
+    opacity: 0;
+    animation: projectIntro 0.8s ease-out forwards;
+}
+
+.experience-title{
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #ccba70;
+}
+
+.experience-icon-wrapper{
+    width: 70px;
+    height: 70px;
+    border-radius: 18px;
+    background: radial-gradient(circle at top left, #ccba70, #bf9a9a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.experience-icon{
+    font-size: 40px;
+    color: #2b2725;
+    animation: chipFloat 5s ease-in-out infinite;
+}
+.experience-card{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 20px 24px;
+    background: rgba(91, 85, 56, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    margin-bottom: 35px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+.experience-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
