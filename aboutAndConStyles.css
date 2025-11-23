@@ -89,16 +89,6 @@ body{
     }
 }
 
-@keyframes aboutText{
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
 .profile-pic {
     width: 350px;
     height: auto;
@@ -133,16 +123,55 @@ body{
     list-style: none;      
 }
 
-.contactContainer h2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-    color:#ffffff;
+.contactContainer {
+    max-width: 600px;
+    margin: 120px auto;          /* centers the whole block on the page */
+    padding: 30px 40px;
+    background: rgba(70, 64, 64, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    text-align: center;      
+    color: #ffffff;
+}
 
+.contactContainer h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #ccba70;
 }
 
 .contactContainer p {
-    text-decoration: none;
+    font-size: 18px;
+    margin-bottom: 20px;
     color: #ccba70;
+}
+
+.contactContainer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contactContainer ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 8px;                  
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+.contact-icon {
+    font-size: 22px;
+    color: #ccba70;
+}
+
+.contactContainer a {
+    color: #ccba70;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contactContainer a:hover {
+    text-decoration: underline;
 }
