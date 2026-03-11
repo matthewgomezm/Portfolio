@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { lusitana } from "@/src/app/ui/fonts";
-import { Year, cn } from "@/src/app/lib/utils";
-import "./globals.css";
+import { lusitana } from "@/components/ui/fonts";
+import { Year, cn } from "@/lib/utils";
 import { Figtree } from "next/font/google";
+import "./globals.css";
 
 const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
 
