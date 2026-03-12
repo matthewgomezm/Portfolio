@@ -138,7 +138,7 @@ export default function ContactPage() {
             </CardContent>
             <CardFooter>
               <Button variant="outline" size="icon" asChild>
-                <Link href="https://github.com/matthewgomezm/ReadMeGen" target="_blank">
+                <Link href="https://github.com/matthewgomezm/TI-RSLK-Max" target="_blank">
                   <Image src="/Portfolio/ghlogo.svg" alt="GitHub" width={20} height={20} className="dark:invert" />
                 </Link>
               </Button>
