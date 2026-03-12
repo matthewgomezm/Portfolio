@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { lusitana, roboto } from "@/components/ui/fonts";
-import { Year, cn } from "@/lib/utils";
+import { lusitana } from "@/components/ui/fonts";
+import { cn } from "@/lib/utils";
 import { Figtree } from "next/font/google";
 import "./globals.css";
+import { Footer } from "@/components/ui/footer";
 
 const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
 
@@ -17,11 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", figtree.variable)}>
+    <html lang="en" className={cn("font-sans scroll-smooth", figtree.variable)}>
       <body className={`${lusitana.className} antialiased`}>
         {children}
+        <Footer />
       </body>
-      
     </html>
   );
 }
