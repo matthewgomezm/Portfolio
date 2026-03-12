@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { lusitana } from "@/components/ui/fonts";
+import { lusitana, roboto } from "@/components/ui/fonts";
 import { Year, cn } from "@/lib/utils";
 import { Figtree } from "next/font/google";
 import "./globals.css";

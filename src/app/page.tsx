@@ -35,7 +35,7 @@ export default function Home() {
                 variant="outline" 
                 className="h-14 rounded-full border-[#ceb888] px-8 py-5 text-sm font-medium text-[#782f40] hover:bg-[#ceb888]/10 dark:border-[#ceb888] dark:text-[#ceb888] dark:hover:bg-[#ceb888]/10">
                 <Link href="/projects">
-                  View Projects
+                  View What I've Been Up To
                 </Link>
               </Button>
             </div>
