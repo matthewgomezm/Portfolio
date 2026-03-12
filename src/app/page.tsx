@@ -44,7 +44,7 @@ export default function Home() {
 
           <div className="flex-shrink-0">
             <Image
-              src="/Portfolio/portrait.jpeg"
+              src="/Portfolio/portrait.jpg"
               alt="Matthew Gomez-Morales"
               width={320} 
               height={320}
