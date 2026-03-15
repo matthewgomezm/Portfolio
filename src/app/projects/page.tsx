@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export default function ContactPage() {
+export default function ProjectsPage() {
   return (
     <div className="flex min-h-screen flex-col items-center bg-[#fdfbf7] px-6 py-24 dark:bg-[#0f0a0a]">
       
@@ -151,6 +151,7 @@ export default function ContactPage() {
       <Button asChild className="bg-[#782f40] px-8 text-white hover:bg-[#5c2331]">
         <Link href="/">Back to Home</Link>
       </Button>
+
     </div>
   );
 }
