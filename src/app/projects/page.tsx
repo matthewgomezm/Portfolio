@@ -75,6 +75,9 @@ export default function ProjectsPage() {
               <p className="text-zinc-700 dark:text-zinc-300">
                 Other designs I have done: <Link href="https://janetzhangmedia.com" target="_blank" className="font-medium underline underline-offset-4">Janet Zhang Media</Link>.
               </p>
+              <p className="text-zinc-700 dark:text-zinc-300">
+                Work in progress design: <Link href="https://lvm-co.myshopify.com" target="_blank" className="font-medium underline underline-offset-4">LVM Co.</Link>.
+              </p>
             </CardContent>
             <CardFooter>
               <Button variant="outline" size="icon" asChild>
