@@ -67,7 +67,7 @@ export default function ProjectsPage() {
                 className="mb-4 rounded-lg object-cover"
               />
               <p className="mb-4 text-zinc-700 dark:text-zinc-300">
-                Turning a passion for code into creative digital solutions. I combine an engineering mindset with a love for emerging web design to build fast, beautiful, and functional websites for clients and friends alike.
+                Turning a hobby for code into creative digital solutions. I combine an engineering mindset with an interest for emerging web design to build appealing and functional websites for clients and friends alike.
               </p>
               <p className="text-zinc-700 dark:text-zinc-300">
                 Check out my latest design for <Link href="https://persse-media.vercel.app/" target="_blank" className="font-medium underline underline-offset-4">Persse Media</Link>.
