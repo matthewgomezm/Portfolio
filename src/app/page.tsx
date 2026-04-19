@@ -19,7 +19,7 @@ export default function Home() {
             </p>
             
             <p className="mb-12 max-w-2xl text-base font-normal leading-relaxed text-zinc-700 dark:text-zinc-400 md:text-lg">
-              Junior at Florida State University specializing in robotics, embedded systems, and computer engineering.
+              Junior at Florida State University in Computer Engineering. Check out my projects and experience, or contact me!
             </p>
 
             <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row justify-center md:justify-start">

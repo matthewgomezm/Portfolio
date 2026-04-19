@@ -38,7 +38,7 @@ export default function ProjectsPage() {
                 className="mb-4 rounded-lg object-cover"
               />
               <p className="mb-4 text-zinc-700 dark:text-zinc-300">
-                My current research internship at the Aeropropulsion, Mechatronics & Energy Center in the Optimal Robotics Lab involves implementing computer vision solutions on a rover. My tech stack includes MuJoCo, ROS2, C++, and Python.
+                My current research internship at the Aeropropulsion, Mechatronics & Energy Center in the Optimal Robotics Lab involves developing a computer vision solution for robots. My tech stack includes MuJoCo, ROS2, C++, and Python.
               </p>
               <p className="text-zinc-700 dark:text-zinc-300">
                 The GitHub link will take you to the MuJoCo repo, but the other repo holds the ROS2 node source code as well.
