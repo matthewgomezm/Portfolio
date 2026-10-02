@@ -1,59 +1,60 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-
+import { asset } from "@/lib/site";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#fdfbf7] font-sans dark:bg-[#0f0a0a]">
-      <main className="w-full max-w-6xl px-6 py-24 md:py-32 sm:px-12">
-        <section id="hero" className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
-          
-          <div className="flex flex-1 flex-col items-center text-center md:items-start md:text-left">
-            <h1 className="mb-1.5 font-serif text-7xl font-bold tracking-tighter text-[#782f40] dark:text-[#f4e8ea] sm:text-8xl md:mb-0 md:text-9xl">
-              Matthew Gomez-Morales
-            </h1>
-            
-            <p className="mb-9 font-serif text-4xl leading-[46px] font-bold tracking-tight text-[#ceb888] dark:text-[#ceb888] sm:text-5xl md:text-6xl">
-              Computer <br className="hidden md:block" /> Engineering Student
-            </p>
-            
-            <p className="mb-12 max-w-2xl text-base font-normal leading-relaxed text-zinc-700 dark:text-zinc-400 md:text-lg">
-              Junior at Florida State University in Computer Engineering. Check out my projects and experience, or contact me!
-            </p>
+    <div className="mx-auto flex min-h-[calc(100dvh-4rem)] w-full max-w-6xl items-center px-6 py-16 sm:px-10 md:py-24">
+      <section
+        aria-labelledby="hero-name"
+        className="grid w-full items-center gap-12 md:grid-cols-[minmax(0,1fr)_auto] md:gap-16 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-6 motion-safe:duration-700"
+      >
+        <div className="order-2 text-center md:order-1 md:text-left">
+          <h1
+            id="hero-name"
+            className="font-serif text-[2.75rem] leading-[0.95] font-bold tracking-tight text-heading min-[400px]:text-5xl sm:text-7xl lg:text-[5.5rem]"
+          >
+            Matthew
+            <br />
+            <span className="whitespace-nowrap">Gomez-Morales</span>
+          </h1>
 
-            <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row justify-center md:justify-start">
-              <Button 
-                asChild 
-                className="h-14 rounded-full bg-[#782f40] px-8 py-5 text-sm font-medium text-white hover:bg-[#5c2331] dark:bg-[#782f40] dark:hover:bg-[#5c2331]">
-                <Link href="/contact">
-                  Get in Touch
-                </Link>
-              </Button>
-              
-              <Button 
-                asChild 
-                variant="outline" 
-                className="h-14 rounded-full border-[#ceb888] px-8 py-5 text-sm font-medium text-[#782f40] hover:bg-[#ceb888]/10 dark:border-[#ceb888] dark:text-[#ceb888] dark:hover:bg-[#ceb888]/10">
-                <Link href="/projects">
-                  View What I've Been Up To
-                </Link>
-              </Button>
-            </div>
-          </div>
+          <p className="mt-6 font-serif text-3xl font-bold text-gold sm:text-4xl">
+            Computer Engineering student
+          </p>
 
-          <div className="flex-shrink-0">
-            <Image
-              src="/Portfolio/portrait.jpg"
-              alt="Matthew Gomez-Morales"
-              width={320} 
-              height={320}
-              className="rounded-full object-cover shadow-2xl border-4 border-[#ceb888] dark:border-[#782f40]"
-              priority
-            />
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:mx-0">
+            I&apos;m a junior at Florida State University. Right now I&apos;m a research intern in
+            the Optimal Robotics Lab, training legged robots to see with reinforcement learning.
+          </p>
+
+          <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row md:justify-start">
+            <Button asChild className="h-12 px-7 text-sm hover:bg-garnet-deep">
+              <Link href="/projects">See my work</Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="h-12 border-gold bg-transparent px-7 text-sm text-heading hover:bg-gold/15 hover:text-heading"
+            >
+              <Link href="/contact">Get in touch</Link>
+            </Button>
           </div>
-        </section>
-      </main>
+        </div>
+
+        <div className="order-1 mx-auto md:order-2">
+          <Image
+            src={asset("/portrait.webp")}
+            alt="Portrait of Matthew Gomez-Morales"
+            width={720}
+            height={720}
+            sizes="(min-width: 768px) 320px, 192px"
+            priority
+            className="size-48 rounded-full object-cover ring-4 ring-gold ring-offset-8 ring-offset-background md:size-80 dark:ring-garnet"
+          />
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,163 +1,65 @@
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Ollama } from '@lobehub/icons';
+import type { Metadata } from "next";
+import { experience, projects } from "@/lib/content";
+import { EntryMedia, EntryText } from "@/components/entry";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+export const metadata: Metadata = {
+  title: "Work",
+  description: "Research, freelance web development, and engineering projects.",
+};
 
-export default function ProjectsPage() {
+export default function WorkPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center bg-[#fdfbf7] px-6 py-24 dark:bg-[#0f0a0a]">
-      
-      <div className="mb-12 grid w-full max-w-7xl grid-cols-1 gap-12 lg:grid-cols-2">
-        
-        <div className="flex flex-col gap-8">
-          <h2 className="font-serif text-5xl font-bold text-[#782f40] dark:text-[#f4e8ea]
-          text-center">
-            Experience
-          </h2>
+    <div className="mx-auto w-full max-w-6xl px-6 pt-16 pb-24 sm:px-10 md:pt-24">
+      <h1 className="font-serif text-5xl font-bold tracking-tight text-heading md:text-6xl">
+        Work
+      </h1>
+      <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
+        Research, freelance builds, and the projects I pick up between classes.
+      </p>
 
-          <Card className="w-full">
-            <CardHeader>
-              <CardTitle>Robotics Research Intern</CardTitle>
-              <CardDescription>Aeropropulsion, Mechatronics & Energy Center</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <video
-                src="/Portfolio/vision.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="mb-4 w-full max-w-[500px] rounded-lg object-cover"
-              />
-              <p className="mb-4 text-zinc-700 dark:text-zinc-300">
-                My research internship at the Aeropropulsion, Mechatronics & Energy Center in the Optimal Robotics Lab involves using reinforcement learning to build a perception pipeline for our robots. My tech stack includes MuJoCo Warp/Mjlab, ROS2, C++, and Python.
-              </p>
-              
-              <p className="mb-4 text-zinc-700 dark:text-zinc-300">
-                The video above is a trained policy walking around with ray casts as its vision source. If you're familiar with the teacher-student paradigm, this is a teacher policy.
-              </p>
-              
-              <p className="text-zinc-700 dark:text-zinc-300">
-                The GitHub link will take you to the vision_rl repo. Switch to the mjlab-* branches to see up to date work.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Button variant="outline" size="icon" asChild>
-                <Link href="https://github.com/matthewgomezm/vision_rl" target="_blank">
-                  <Image src="/Portfolio/ghlogo.svg" alt="GitHub" width={20} height={20} className="dark:invert" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-
-          <Card className="w-full">
-            <CardHeader>
-              <CardTitle>Web Development</CardTitle>
-              <CardDescription>Freelance</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Image
-                src="/Portfolio/webdesign.png"
-                alt="Web Design"
-                width={500}
-                height={300}
-                className="mb-4 rounded-lg object-cover"
-              />
-              <p className="mb-4 text-zinc-700 dark:text-zinc-300">
-                Turning a hobby for code into creative digital solutions. I combine an engineering mindset with an interest for emerging web design to build appealing and functional websites for clients and friends alike.
-              </p>
-              <p className="text-zinc-700 dark:text-zinc-300">
-                Check out my latest design for <Link href="https://persse-media.vercel.app/" target="_blank" className="font-medium underline underline-offset-4">Persse Media</Link>.
-              </p>
-              <p className="text-zinc-700 dark:text-zinc-300">
-                Other designs I have done: <Link href="https://janetzhangmedia.com" target="_blank" className="font-medium underline underline-offset-4">Janet Zhang Media</Link>.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Button variant="outline" size="icon" asChild>
-                <Link href="https://github.com/matthewgomezm/PersseMedia" target="_blank">
-                  <Image src="/Portfolio/ghlogo.svg" alt="GitHub" width={20} height={20} className="dark:invert" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
+      <section aria-labelledby="experience" className="mt-16 md:mt-20">
+        <h2 id="experience" className="font-serif text-3xl font-bold text-heading">
+          Experience
+        </h2>
+        <div className="mt-6 border-t-2 border-gold">
+          {experience.map((entry) => (
+            <article
+              key={entry.title}
+              className="grid gap-8 border-b border-border py-10 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-12"
+            >
+              {entry.media && (
+                <EntryMedia media={entry.media} sizes="(min-width: 768px) 500px, 100vw" />
+              )}
+              <div className={entry.media ? undefined : "md:col-span-2"}>
+                <EntryText entry={entry} />
+              </div>
+            </article>
+          ))}
         </div>
+      </section>
 
-        <div className="flex flex-col gap-8">
-          <h2 className="font-serif text-5xl font-bold text-[#782f40] dark:text-[#f4e8ea] text-center">
-            Projects
-          </h2>
-
-          <Card className="w-full">
-            <CardHeader>
-              <CardTitle>Document Generation with local Large-Language Models (LLMs)</CardTitle>
-              <CardDescription>Python, Ollama, Shell Scripting</CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-col items-cente ">
-            <div className="mb-6 flex w-full justify-center py-4 text-zinc-800 dark:text-zinc-200">
-                  <Ollama.Combine size={64} /> 
-            </div>
-              <p className="text-zinc-700 dark:text-zinc-300">
-                I am bad at writing documentation. So I wrote a program to do it for me 😃
-              </p>
-              <p>
-                I have been interested in how local models can streamline development.
-                This tool uses Ollama to analyze my codebase and generate a high-quality README.md file instantly, 
-                allowing me to focus on building features rather than writing manuals, all while maintaining complete data privacy.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Button variant="outline" size="icon" asChild>
-                <Link href="https://github.com/matthewgomezm/ReadMeGen" target="_blank">
-                  <Image src="/Portfolio/ghlogo.svg" alt="GitHub" width={20} height={20} className="dark:invert" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-
-          <Card className="w-full">
-            <CardHeader>
-              <CardTitle>TI RSLK MAX Robot</CardTitle>
-              <CardDescription>Embedded C/C++</CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-col items-cente ">
-            <Image
-                src="/Portfolio/RSLK.jpg"
-                alt="Web Design"
-                width={500}
-                height={300}
-                className="mb-4 rounded-lg object-cover"
-              />
-              <p className="text-zinc-700 dark:text-zinc-300">
-                As part of my Advanced Microprocessor System Design course, we are developing an autonomous line-following robot using the TI-RSLK platform.
-                My work focuses on real-time sensor processing, PID-based motor speed regulation, and implementing fail-safes for collision detection to ensure reliable navigation through complex tracks.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Button variant="outline" size="icon" asChild>
-                <Link href="https://github.com/matthewgomezm/TI-RSLK-Max" target="_blank">
-                  <Image src="/Portfolio/ghlogo.svg" alt="GitHub" width={20} height={20} className="dark:invert" />
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-          
+      <section aria-labelledby="projects" className="mt-20">
+        <h2 id="projects" className="font-serif text-3xl font-bold text-heading">
+          Projects
+        </h2>
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
+          {projects.map((entry) => (
+            <article
+              key={entry.title}
+              className="flex flex-col gap-6 rounded-2xl bg-card p-6 ring-1 ring-border"
+            >
+              {entry.media && (
+                <EntryMedia
+                  media={entry.media}
+                  sizes="(min-width: 768px) 520px, 100vw"
+                  className="aspect-[16/10]"
+                />
+              )}
+              <EntryText entry={entry} />
+            </article>
+          ))}
         </div>
-      </div>
-
-      <Button asChild className="bg-[#782f40] px-8 text-white hover:bg-[#5c2331]">
-        <Link href="/">Back to Home</Link>
-      </Button>
-
+      </section>
     </div>
   );
 }
