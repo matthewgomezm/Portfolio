@@ -26,27 +26,33 @@ export default function ProjectsPage() {
 
           <Card className="w-full">
             <CardHeader>
-              <CardTitle>Research Intern</CardTitle>
+              <CardTitle>Robotics Research Intern</CardTitle>
               <CardDescription>Aeropropulsion, Mechatronics & Energy Center</CardDescription>
             </CardHeader>
             <CardContent>
-              <Image
-                src="/Portfolio/zedmini.jpg"
-                alt="Zed Mini Project"
-                width={500}
-                height={300}
-                className="mb-4 rounded-lg object-cover"
+              <video
+                src="/Portfolio/vision.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="mb-4 w-full max-w-[500px] rounded-lg object-cover"
               />
               <p className="mb-4 text-zinc-700 dark:text-zinc-300">
-                My current research internship at the Aeropropulsion, Mechatronics & Energy Center in the Optimal Robotics Lab involves developing a computer vision solution for robots. My tech stack includes MuJoCo, ROS2, C++, and Python.
+                My research internship at the Aeropropulsion, Mechatronics & Energy Center in the Optimal Robotics Lab involves using reinforcement learning to build a perception pipeline for our robots. My tech stack includes MuJoCo Warp/Mjlab, ROS2, C++, and Python.
               </p>
+              
+              <p className="mb-4 text-zinc-700 dark:text-zinc-300">
+                The video above is a trained policy walking around with ray casts as its vision source. If you're familiar with the teacher-student paradigm, this is a teacher policy.
+              </p>
+              
               <p className="text-zinc-700 dark:text-zinc-300">
-                The GitHub link will take you to the MuJoCo repo, but the other repo holds the ROS2 node source code as well.
+                The GitHub link will take you to the vision_rl repo. Switch to the mjlab-* branches to see up to date work.
               </p>
             </CardContent>
             <CardFooter>
               <Button variant="outline" size="icon" asChild>
-                <Link href="https://github.com/matthewgomezm/zedm_mujoco" target="_blank">
+                <Link href="https://github.com/matthewgomezm/vision_rl" target="_blank">
                   <Image src="/Portfolio/ghlogo.svg" alt="GitHub" width={20} height={20} className="dark:invert" />
                 </Link>
               </Button>
@@ -74,9 +80,6 @@ export default function ProjectsPage() {
               </p>
               <p className="text-zinc-700 dark:text-zinc-300">
                 Other designs I have done: <Link href="https://janetzhangmedia.com" target="_blank" className="font-medium underline underline-offset-4">Janet Zhang Media</Link>.
-              </p>
-              <p className="text-zinc-700 dark:text-zinc-300">
-                Work in progress design: <Link href="https://lvm-co.myshopify.com" target="_blank" className="font-medium underline underline-offset-4">LVM Co.</Link>
               </p>
             </CardContent>
             <CardFooter>
