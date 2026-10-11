@@ -34,8 +34,8 @@ export function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div role="status" className="rounded-2xl bg-card p-8 ring-1 ring-border">
-        <p className="font-serif text-2xl font-bold text-heading">Message sent</p>
+      <div role="status" className="rounded-sm bg-card p-8 ring-1 ring-border">
+        <p className="font-semiwide text-2xl font-bold text-heading">Message sent</p>
         <p className="mt-2 text-muted-foreground">
           Thanks for reaching out. I&apos;ll reply to the email you gave.
         </p>
@@ -51,7 +51,7 @@ export function ContactForm() {
       action={links.formspree}
       method="POST"
       onSubmit={handleSubmit}
-      className="flex flex-col gap-6 rounded-2xl bg-card p-6 ring-1 ring-border sm:p-8"
+      className="flex flex-col gap-6 rounded-sm bg-card p-6 ring-1 ring-border sm:p-8"
     >
       <div className="grid gap-2">
         <Label htmlFor="name">Name</Label>
@@ -76,7 +76,7 @@ export function ContactForm() {
       <Button
         type="submit"
         disabled={status === "sending"}
-        className="h-12 hover:bg-garnet-deep"
+        className="h-12 rounded-sm font-semibold hover:bg-primary/85"
       >
         {status === "sending" ? "Sending…" : "Send message"}
       </Button>

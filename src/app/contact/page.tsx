@@ -10,16 +10,15 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto grid w-full max-w-6xl gap-12 px-6 pt-16 pb-24 sm:px-10 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-16 md:pt-24">
+    <div className="mx-auto grid w-full max-w-7xl gap-12 px-4 pt-16 pb-24 sm:px-8 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-16 md:pt-24">
       <div>
-        <h1 className="font-serif text-5xl font-bold tracking-tight text-heading md:text-6xl">
+        <h1 className="font-wide text-5xl leading-none font-extrabold tracking-tight text-heading md:text-7xl">
           Contact
         </h1>
-        <p className="mt-4 max-w-md text-lg leading-relaxed text-muted-foreground">
-          Questions about my work, internships, or a website you want built — send a message and
-          I&apos;ll get back to you as soon as I can.
+        <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground">
+          To get in touch with me, send a message or follow on any of the platforms!
         </p>
-        <ul className="mt-10 space-y-4 border-t-2 border-gold pt-6">
+        <ul className="mt-10 space-y-4 border-t border-border pt-6">
           <li>
             <a
               href={links.linkedin}
