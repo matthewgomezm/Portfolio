@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { BASE_PATH } from "./lib/site";
 
 const nextConfig: NextConfig = {
   /**
@@ -13,7 +14,7 @@ const nextConfig: NextConfig = {
    *
    * @see https://nextjs.org/docs/app/api-reference/next-config-js/basePath
    */
-  basePath: "/Portfolio",
+  basePath: BASE_PATH,
 
   /**
    * Disable server-based image optimization. Next.js does not support

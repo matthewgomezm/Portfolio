@@ -1,36 +1,22 @@
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { Year } from "@/lib/utils";
+import { links } from "@/lib/site";
+import { GitHubIcon, LinkedInIcon } from "@/components/icons";
+
+const iconLink =
+  "grid size-10 place-items-center rounded-sm text-neutral-400 transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-[#ceb888] focus-visible:outline-none";
 
 export function Footer() {
-
   return (
-    <footer className="w-full px-6 py-8 flex justify-center">
-      <div className="flex w-full max-w-7xl flex-col items-center justify-between gap-4 md:flex-row md:gap-16">
-        
-        <div className="flex flex-col items-center text-sm md:flex-row md:items-baseline text-zinc-500 dark:text-zinc-400">
-          <span>© {Year}</span>
-          <span className="px-2 font-medium text-zinc-900 dark:text-zinc-100">
-            MGM
-          </span>
-          <span className="px-2">
-          </span>
-        </div>
-
-        <div className="flex gap-4">
-          <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800">
-            <Link href="https://github.com/matthewgomezm" target="_blank" aria-label="GitHub">
-              <Image src="/Portfolio/ghlogo.svg" alt="GitHub" width={20} height={20} className="dark:invert" />
-            </Link>
-          </Button>
-          
-          <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800">
-            <Link href="https://www.linkedin.com/in/mgomezmorales" target="_blank" aria-label="LinkedIn">
-               <Image src="/Portfolio/linkedin.png" alt="LinkedIn" width={20} height={20} className="dark:invert" />
-            </Link>
-          </Button> 
-        
+    <footer className="border-t border-neutral-800 bg-black text-neutral-400">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 text-sm sm:flex-row sm:px-8">
+        <p>© {Year} Matthew Gomez-Morales</p>
+        <div className="flex gap-1">
+          <a href={links.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className={iconLink}>
+            <GitHubIcon className="size-5" />
+          </a>
+          <a href={links.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className={iconLink}>
+            <LinkedInIcon className="size-5" />
+          </a>
         </div>
       </div>
     </footer>
