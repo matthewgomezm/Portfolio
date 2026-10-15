@@ -35,7 +35,7 @@ export function SiteHeader() {
                     href={href}
                     aria-current={active ? "page" : undefined}
                     className={cn(
-                      "rounded-sm px-2 py-2 text-neutral-400 sm:px-3 transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-[#ceb888] focus-visible:outline-none",
+                      "inline-flex min-h-11 items-center rounded-sm px-2.5 text-neutral-400 sm:px-3 transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-[#ceb888] focus-visible:outline-none",
                       active && "text-white underline decoration-[#ceb888] decoration-2 underline-offset-[6px]"
                     )}
                   >

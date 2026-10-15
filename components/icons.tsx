@@ -29,3 +29,20 @@ export function OllamaLogo(props: IconProps) {
     </svg>
   );
 }
+
+export function PlayIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M4.5 2.6v10.8c0 .5.55.8.97.53l8.3-5.4a.63.63 0 0 0 0-1.06l-8.3-5.4a.63.63 0 0 0-.97.53Z" />
+    </svg>
+  );
+}
+
+export function PauseIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" {...props}>
+      <rect x="3.5" y="2.5" width="3" height="11" rx="0.5" />
+      <rect x="9.5" y="2.5" width="3" height="11" rx="0.5" />
+    </svg>
+  );
+}

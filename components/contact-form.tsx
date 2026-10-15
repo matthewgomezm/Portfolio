@@ -9,6 +9,10 @@ import { links } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+// Square corners like the rest of the site, and a filled field so the inputs
+// don't read as disabled on the card.
+const field = "rounded-sm bg-background md:text-base";
+
 // Posts to Formspree in the background so visitors stay on the page. Without
 // JavaScript the form still submits normally via action/method.
 export function ContactForm() {
@@ -34,7 +38,7 @@ export function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div role="status" className="rounded-sm bg-card p-8 ring-1 ring-border">
+      <div role="status" className="rounded-sm bg-card p-8">
         <p className="font-semiwide text-2xl font-bold text-heading">Message sent</p>
         <p className="mt-2 text-muted-foreground">
           Thanks for reaching out. I&apos;ll reply to the email you gave.
@@ -51,19 +55,19 @@ export function ContactForm() {
       action={links.formspree}
       method="POST"
       onSubmit={handleSubmit}
-      className="flex flex-col gap-6 rounded-sm bg-card p-6 ring-1 ring-border sm:p-8"
+      className="flex flex-col gap-6 rounded-sm bg-card p-6 sm:p-8"
     >
       <div className="grid gap-2">
         <Label htmlFor="name">Name</Label>
-        <Input id="name" name="name" autoComplete="name" required className="h-11" />
+        <Input id="name" name="name" autoComplete="name" required className={`${field} h-11`} />
       </div>
       <div className="grid gap-2">
         <Label htmlFor="email">Email</Label>
-        <Input id="email" name="email" type="email" autoComplete="email" required className="h-11" />
+        <Input id="email" name="email" type="email" autoComplete="email" required className={`${field} h-11`} />
       </div>
       <div className="grid gap-2">
         <Label htmlFor="message">Message</Label>
-        <Textarea id="message" name="message" required className="min-h-36" />
+        <Textarea id="message" name="message" required className={`${field} min-h-36`} />
       </div>
 
       {status === "error" && (

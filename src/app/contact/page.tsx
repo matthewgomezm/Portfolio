@@ -16,9 +16,9 @@ export default function ContactPage() {
           Contact
         </h1>
         <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground">
-          To get in touch with me, send a message or follow on any of the platforms!
+          Send a message and I&apos;ll reply by email. You can also find me on LinkedIn and GitHub.
         </p>
-        <ul className="mt-10 space-y-4 border-t border-border pt-6">
+        <ul className="mt-10 space-y-4">
           <li>
             <a
               href={links.linkedin}
