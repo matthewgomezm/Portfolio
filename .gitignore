@@ -45,3 +45,7 @@ next-env.d.ts
 
 # design-skill inspector screenshots
 .taste-skill/
+
+# local agent skills and Claude Code settings
+.agents/
+.claude/
