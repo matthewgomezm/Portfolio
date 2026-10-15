@@ -157,7 +157,7 @@
     .rise-on-view > span > span {
       animation: rise linear both;
       animation-timeline: --heading;
-      animation-range: entry 20% cover 35%;
+      animation-range: entry 10% entry 100%;
     }
   }
 }
