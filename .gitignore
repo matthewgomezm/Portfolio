@@ -42,3 +42,6 @@ next-env.d.ts
 
 # editor
 .idea/
+
+# design-skill inspector screenshots
+.taste-skill/

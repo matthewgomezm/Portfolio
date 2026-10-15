@@ -2,7 +2,7 @@ import Image from "next/image";
 import { entryId, type Entry, type Media, type TextPart } from "@/lib/content";
 import { asset } from "@/lib/site";
 import { cn } from "@/lib/utils";
-import { AutoplayVideo } from "@/components/autoplay-video";
+import { ClipPlayer } from "@/components/clip-player";
 import { GitHubIcon, OllamaLogo } from "@/components/icons";
 
 const graphics = { ollama: OllamaLogo };
@@ -32,16 +32,7 @@ export function EntryMedia({
   }
 
   if (media.kind === "video") {
-    return (
-      <AutoplayVideo
-        src={asset(media.src)}
-        poster={asset(media.poster)}
-        label={media.label}
-        width={media.width}
-        height={media.height}
-        className={shared}
-      />
-    );
+    return <ClipPlayer clips={media.clips} sizes={sizes} className={className} />;
   }
 
   const image = (
@@ -93,9 +84,9 @@ export function EntryArticle({ entry }: { entry: Entry }) {
   return (
     <article
       id={entryId(entry)}
-      className="grid scroll-mt-24 gap-6 border-t border-border py-12 md:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] md:gap-10 md:py-16"
+      className="grid scroll-mt-24 gap-6 py-12 first:pt-0 md:py-20 md:first:pt-0 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] lg:gap-10"
     >
-      <header className="md:sticky md:top-24 md:self-start">
+      <header className="lg:sticky lg:top-24 lg:self-start">
         <h3 className="font-semiwide text-2xl leading-tight font-bold text-heading text-balance md:text-[1.75rem]">
           {entry.title}
         </h3>
@@ -106,7 +97,7 @@ export function EntryArticle({ entry }: { entry: Entry }) {
             {entry.tags.map((tag) => (
               <li
                 key={tag}
-                className="rounded-sm border border-input px-2 py-0.5 text-[0.8125rem] text-foreground"
+                className="rounded-sm bg-secondary px-2 py-0.5 text-[0.8125rem] text-secondary-foreground"
               >
                 {tag}
               </li>
@@ -131,7 +122,7 @@ export function EntryArticle({ entry }: { entry: Entry }) {
         {entry.media && (
           <EntryMedia
             media={entry.media}
-            sizes="(min-width: 1280px) 720px, (min-width: 768px) 60vw, 100vw"
+            sizes="(min-width: 1280px) 580px, (min-width: 1024px) 42vw, 100vw"
             className="mb-8"
           />
         )}

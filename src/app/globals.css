@@ -125,7 +125,7 @@
 /* The one orchestrated moment: the hero name rises line by line on load. */
 @keyframes rise {
   from {
-    transform: translateY(105%);
+    transform: translateY(120%);
   }
   to {
     transform: translateY(0);
@@ -141,5 +141,23 @@
   }
   .rise > span:nth-child(3) > span {
     animation-delay: 180ms;
+  }
+}
+
+/*
+ * Section headings repeat the same rise as they scroll into view. It is tied to
+ * scroll position, so it needs no script; browsers without view timelines show
+ * the headings in place.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .rise-on-view > span {
+      view-timeline: --heading block;
+    }
+    .rise-on-view > span > span {
+      animation: rise linear both;
+      animation-timeline: --heading;
+      animation-range: entry 20% cover 35%;
+    }
   }
 }

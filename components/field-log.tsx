@@ -9,7 +9,7 @@ export function FieldLog({ entries }: { entries: FieldEntry[] }) {
       {entries.map((entry) => (
         <li
           key={`${entry.title}-${entry.date}`}
-          className="grid gap-4 border-t border-border py-10 sm:grid-cols-[6.5rem_minmax(0,1fr)] md:grid-cols-[6.5rem_minmax(0,1fr)_minmax(0,18rem)] md:gap-10"
+          className="grid gap-4 py-10 first:pt-0 sm:grid-cols-[6.5rem_minmax(0,1fr)] sm:gap-x-8 xl:grid-cols-[6.5rem_minmax(0,1fr)_minmax(0,22rem)] xl:gap-x-10"
         >
           <p className="text-sm text-muted-foreground tabular-nums">{entry.date}</p>
 
@@ -43,13 +43,13 @@ export function FieldLog({ entries }: { entries: FieldEntry[] }) {
               srcSet={[...(entry.photo.smaller ?? []), entry.photo]
                 .map((file) => `${asset(file.src)} ${file.width}w`)
                 .join(", ")}
-              sizes="(min-width: 768px) 288px, (min-width: 640px) calc(100vw - 13rem), calc(100vw - 2rem)"
+              sizes="(min-width: 1280px) 352px, (min-width: 640px) 384px, calc(100vw - 2rem)"
               alt={entry.photo.alt}
               width={entry.photo.width}
               height={entry.photo.height}
               loading="lazy"
               decoding="async"
-              className="h-auto w-full max-w-sm rounded-sm bg-muted object-cover sm:col-start-2 md:col-start-auto"
+              className="h-auto w-full max-w-sm rounded-sm bg-muted object-cover sm:col-start-2 xl:col-start-auto xl:max-w-none"
             />
           )}
         </li>

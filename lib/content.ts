@@ -1,6 +1,9 @@
+import type { Clip } from "@/lib/clip";
+
 export type Media =
   | { kind: "image"; src: string; alt: string; width: number; height: number; credit?: string }
-  | { kind: "video"; src: string; poster: string; label: string; width: number; height: number }
+  // One clip, or several the visitor can switch between.
+  | { kind: "video"; clips: Clip[] }
   // An inline logo drawn in the page's text color (see components/entry.tsx).
   | { kind: "graphic"; graphic: "ollama"; label: string };
 
@@ -24,12 +27,30 @@ export function entryId(entry: Entry) {
     .replace(/(^-|-$)/g, "");
 }
 
-// The clip that runs in the home page hero.
-export const heroMedia = {
-  src: "/vision.mp4",
+// The lab's Go2 running my basic locomotion policy, filmed from the floor. It
+// uses no perception yet, so the copy must not suggest it does. Phones get the
+// 960px file, wider screens the 1280px one. The poster is the loop's first frame.
+const go2Hardware: Clip = {
+  name: "Hardware",
+  sources: [
+    { src: "/go2-960.mp4", type: "video/mp4", media: "(max-width: 767px)" },
+    { src: "/go2-1280.mp4", type: "video/mp4" },
+  ],
+  poster: "/go2-poster.webp",
+  posterSmaller: { src: "/go2-poster-960.webp", width: 960 },
+  label:
+    "A Unitree Go2 quadruped running my locomotion policy, walking across the lab floor toward the camera, filmed from ground level",
+  caption: "My locomotion policy running on our Unitree Go2 in the Optimal Robotics Lab. It isn’t using vision just yet.",
+  width: 1600,
+  height: 900,
+};
+
+const mjlabTeacher: Clip = {
+  name: "Simulation",
+  sources: [{ src: "/vision.mp4", type: "video/mp4" }],
   poster: "/vision-poster.webp",
   label: "Simulated quadruped walking over rough terrain using ray casts as its vision input",
-  caption: "Teacher policy walking rough terrain with ray-cast vision, simulated in Mjlab. Part of my research work.",
+  caption: "Teacher policy walking rough terrain with ray-cast vision, simulated in mjlab.",
   width: 960,
   height: 548,
 };
@@ -39,12 +60,15 @@ export const experience: Entry[] = [
     title: "Robotics Research Intern",
     org: "Aeropropulsion, Mechatronics & Energy Center, Optimal Robotics Lab",
     tags: ["MuJoCo Warp / mjlab", "ROS 2", "C++", "Python"],
+    // Two different policies in one frame: the perception teacher in simulation
+    // and the basic locomotion policy on hardware.
+    media: { kind: "video", clips: [mjlabTeacher, go2Hardware] },
     body: [
       [
         "I use reinforcement learning to build a perception pipeline for our legged robots.",
       ],
       [
-        "The clip at the top of this page is a trained policy walking with ray casts as its vision source. If you know the teacher–student paradigm, this is a teacher policy.",
+        "The clip above starts in simulation: a trained policy walking with ray casts as its vision source. If you know the teacher–student paradigm, this is a teacher policy. Switch to Hardware to see a basic locomotion policy running on our Go2.",
       ],
       ["Current work lives in the go2_mjlab repo."],
     ],
@@ -104,7 +128,7 @@ export const projects: Entry[] = [
     ],
   },
   {
-    title: "TI-RSLK MAX line-following robot",
+    title: "TI-RSLK MAX line‑following robot",
     org: "Advanced Microprocessor System Design",
     tags: ["Embedded C/C++", "PID control"],
     media: {

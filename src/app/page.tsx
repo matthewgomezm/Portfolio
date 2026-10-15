@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { experience, projects, field, heroMedia, entryId, type Entry } from "@/lib/content";
+import { experience, projects, field, entryId, type Entry } from "@/lib/content";
 import { asset } from "@/lib/site";
-import { AutoplayVideo } from "@/components/autoplay-video";
 import { EntryArticle } from "@/components/entry";
 import { WorkRail } from "@/components/work-rail";
 import { FieldLog } from "@/components/field-log";
@@ -29,9 +28,9 @@ export default function Home() {
               <section key={group.id} id={group.id} aria-labelledby={`${group.id}-heading`} className="scroll-mt-20">
                 <h2
                   id={`${group.id}-heading`}
-                  className="font-wide text-5xl leading-none font-extrabold tracking-tight text-heading md:text-7xl"
+                  className="rise-on-view font-wide text-[2rem] leading-none font-extrabold tracking-tight text-heading sm:text-5xl md:text-7xl"
                 >
-                  {group.label}
+                  <Rise>{group.label}</Rise>
                 </h2>
                 <div className="mt-10">
                   {group.entries.map((entry) => (
@@ -54,66 +53,52 @@ export default function Home() {
 function Hero() {
   return (
     <section aria-labelledby="hero-name" className="bg-black text-white">
-      <div className="mx-auto flex w-full md:min-h-[calc(100svh-4rem)] max-w-7xl flex-col justify-between gap-10 px-4 pt-8 pb-10 sm:px-8 md:pt-12 md:pb-14">
-        <figure className="w-full md:ml-auto md:w-[56%]">
-          <AutoplayVideo
-            src={asset(heroMedia.src)}
-            poster={asset(heroMedia.poster)}
-            label={heroMedia.label}
-            width={heroMedia.width}
-            height={heroMedia.height}
-            className="h-auto w-full rounded-sm bg-neutral-900"
-          />
-          <figcaption className="mt-3 text-sm text-neutral-400">{heroMedia.caption}</figcaption>
-        </figure>
+      <div className="mx-auto w-full max-w-7xl px-4 pt-10 pb-14 sm:px-8 md:pt-16 md:pb-24">
+        {/* Phones get Archivo's normal width so the name can be set larger. */}
+        <h1
+          id="hero-name"
+          className="rise font-wide text-[calc((100vw-2rem)/9.4)] leading-[0.88] font-extrabold tracking-[-0.02em] whitespace-nowrap uppercase max-sm:[font-variation-settings:'wdth'_100] sm:text-[min(calc((100vw-2.5rem)/12.3),6.5rem)] sm:leading-[0.86]"
+        >
+          <span className="block overflow-hidden">
+            <span className="block">Matthew</span>
+          </span>
+          <span className="block overflow-hidden">
+            <span className="block">Gomez-Morales</span>
+          </span>
+        </h1>
 
-        <div>
-          <h1
-            id="hero-name"
-            className="rise font-wide text-[min(calc((100vw-2.5rem)/12.3),6.5rem)] leading-[0.86] font-extrabold tracking-[-0.02em] whitespace-nowrap uppercase"
-          >
-            <span className="block overflow-hidden">
-              <span className="block">Matthew</span>
-            </span>
-            <span className="block overflow-hidden">
-              <span className="block">Gomez-Morales</span>
-            </span>
-          </h1>
-
-          <div className="mt-8 flex flex-col gap-8 border-t border-neutral-800 pt-6 md:flex-row md:items-end md:justify-between">
-            <p className="max-w-xl text-lg leading-relaxed text-neutral-300">
-              Computer engineering student at Florida State University.
-            </p>
-            <div className="flex shrink-0 gap-3">
-              <Link
-                href="/#work"
-                className="inline-flex h-12 items-center rounded-sm bg-white px-6 text-sm font-semibold text-black transition-colors hover:bg-neutral-200 focus-visible:ring-2 focus-visible:ring-[#ceb888] focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none"
-              >
-                See my work
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex h-12 items-center rounded-sm border border-neutral-600 px-6 text-sm font-semibold text-white transition-colors hover:border-white focus-visible:ring-2 focus-visible:ring-[#ceb888] focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none"
-              >
-                Get in touch
-              </Link>
-            </div>
+        <div className="mt-6 flex flex-col gap-6 md:mt-8 md:flex-row md:items-end md:justify-between">
+          <p className="max-w-xl text-lg leading-relaxed text-pretty text-neutral-300">
+            Computer engineering senior at Florida State University.
+          </p>
+          <div className="flex shrink-0 gap-3">
+            <Link href="/#work" className={`${buttonOnBlack} bg-white text-black hover:bg-neutral-200`}>
+              See my work
+            </Link>
+            <Link href="/contact" className={`${buttonOnBlack} border border-neutral-600 text-white hover:border-white`}>
+              Get in touch
+            </Link>
           </div>
         </div>
+
       </div>
     </section>
   );
 }
 
+// Shared by the hero and the closing call to action, both on black.
+const buttonOnBlack =
+  "inline-flex h-12 items-center rounded-sm px-6 text-sm font-semibold transition-[background-color,border-color,transform] duration-150 focus-visible:ring-2 focus-visible:ring-[#ceb888] focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none active:translate-y-px";
+
 function InTheField() {
   return (
-    <section id="field" aria-labelledby="field-heading" className="scroll-mt-16 border-t border-border">
+    <section id="field" aria-labelledby="field-heading" className="scroll-mt-16 bg-card">
       <div className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-8 md:py-28 lg:pl-[calc(13rem+4rem+2rem)]">
         <h2
           id="field-heading"
-          className="font-wide text-5xl leading-none font-extrabold tracking-tight text-heading md:text-7xl"
+          className="rise-on-view font-wide text-[2rem] leading-none font-extrabold tracking-tight text-heading sm:text-5xl md:text-7xl"
         >
-          In the field
+          <Rise>In the field</Rise>
         </h2>
         <p className="mt-6 max-w-prose text-lg text-muted-foreground">
           Conferences, competitions, and other places the work has taken me.
@@ -126,7 +111,7 @@ function InTheField() {
 
 function About() {
   return (
-    <section id="about" aria-labelledby="about-heading" className="scroll-mt-16 border-t border-border">
+    <section id="about" aria-labelledby="about-heading" className="scroll-mt-16">
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-20 sm:px-8 md:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] md:gap-10 md:py-28 lg:pl-[calc(13rem+4rem+2rem)]">
         <Image
           src={asset("/portrait.webp")}
@@ -135,14 +120,14 @@ function About() {
           height={720}
           sizes="(min-width: 768px) 320px, 100vw"
           loading="lazy"
-          className="aspect-square w-full max-w-xs rounded-sm object-cover"
+          className="aspect-square w-full rounded-sm bg-muted object-cover md:max-w-xs"
         />
         <div>
           <h2
             id="about-heading"
-            className="font-wide text-5xl leading-none font-extrabold tracking-tight text-heading md:text-7xl"
+            className="rise-on-view font-wide text-[2rem] leading-none font-extrabold tracking-tight text-heading sm:text-5xl md:text-7xl"
           >
-            About
+            <Rise>About</Rise>
           </h2>
           <div className="mt-8 max-w-prose space-y-4 text-[1.0625rem] leading-relaxed">
             <p>
@@ -163,17 +148,26 @@ function ContactCta() {
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-20 sm:px-8 md:flex-row md:items-end md:justify-between md:py-24">
         <h2
           id="cta-heading"
-          className="max-w-3xl font-wide text-4xl leading-[0.95] font-extrabold tracking-tight text-balance md:text-6xl"
+          className="rise-on-view max-w-3xl font-wide text-4xl leading-[0.95] font-extrabold tracking-tight text-balance md:text-6xl"
         >
-          Get in touch with me
+          <Rise>Get in touch with me</Rise>
         </h2>
         <Link
           href="/contact"
-          className="inline-flex h-12 w-fit shrink-0 items-center rounded-sm bg-white px-6 text-sm font-semibold text-black transition-colors hover:bg-neutral-200 focus-visible:ring-2 focus-visible:ring-[#ceb888] focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none"
+          className={`${buttonOnBlack} w-fit shrink-0 bg-white text-black hover:bg-neutral-200`}
         >
           Send me a message
         </Link>
       </div>
     </section>
+  );
+}
+
+// Lets a heading rise from behind its own baseline as it scrolls into view
+function Rise({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="-mb-[0.14em] block overflow-hidden pb-[0.14em]">
+      <span className="block">{children}</span>
+    </span>
   );
 }
