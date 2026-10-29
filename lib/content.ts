@@ -28,10 +28,10 @@ export function entryId(entry: Entry) {
 }
 
 // The lab's Go2 running my basic locomotion policy, filmed from the floor. It
-// uses no perception yet, so the copy must not suggest it does. Phones get the
+// uses no perception, so the copy must not suggest it does. Phones get the
 // 960px file, wider screens the 1280px one. The poster is the loop's first frame.
-const go2Hardware: Clip = {
-  name: "Hardware",
+const go2Locomotion: Clip = {
+  name: "Locomotion",
   sources: [
     { src: "/go2-960.mp4", type: "video/mp4", media: "(max-width: 767px)" },
     { src: "/go2-1280.mp4", type: "video/mp4" },
@@ -40,9 +40,25 @@ const go2Hardware: Clip = {
   posterSmaller: { src: "/go2-poster-960.webp", width: 960 },
   label:
     "A Unitree Go2 quadruped running my locomotion policy, walking across the lab floor toward the camera, filmed from ground level",
-  caption: "My locomotion policy running on our Unitree Go2 in the Optimal Robotics Lab. It isn’t using vision just yet.",
+  caption: "My locomotion policy running on our Unitree Go2 in the Optimal Robotics Lab. This one doesn’t use vision.",
   width: 1600,
   height: 900,
+};
+
+// The first deployment (v1) of my vision policy on the Go2, cropped in from the
+// 4K original so the robot reads larger.
+const go2VisionV1: Clip = {
+  name: "Vision v1",
+  sources: [
+    { src: "/go2-vision-960.mp4", type: "video/mp4", media: "(max-width: 767px)" },
+    { src: "/go2-vision-1280.mp4", type: "video/mp4" },
+  ],
+  poster: "/go2-vision-poster.webp",
+  posterSmaller: { src: "/go2-vision-poster-960.webp", width: 960 },
+  label: "A Unitree Go2 quadruped running the first deployment of my vision policy, walking around the lab floor",
+  caption: "Version 1 of my vision policy, deployed on our Unitree Go2.",
+  width: 1280,
+  height: 720,
 };
 
 const mjlabTeacher: Clip = {
@@ -60,15 +76,15 @@ export const experience: Entry[] = [
     title: "Robotics Research Intern",
     org: "Aeropropulsion, Mechatronics & Energy Center, Optimal Robotics Lab",
     tags: ["MuJoCo Warp / mjlab", "ROS 2", "C++", "Python"],
-    // Two different policies in one frame: the perception teacher in simulation
-    // and the basic locomotion policy on hardware.
-    media: { kind: "video", clips: [mjlabTeacher, go2Hardware] },
+    // Different policies in one frame: the perception teacher in simulation, the
+    // basic locomotion policy on hardware, and the first vision deployment.
+    media: { kind: "video", clips: [mjlabTeacher, go2Locomotion, go2VisionV1] },
     body: [
       [
         "I use reinforcement learning to build a perception pipeline for our legged robots.",
       ],
       [
-        "The clip above starts in simulation: a trained policy walking with ray casts as its vision source. If you know the teacher–student paradigm, this is a teacher policy. Switch to Hardware to see a basic locomotion policy running on our Go2.",
+        "The clip above starts in simulation: a trained policy walking with ray casts as its vision source. If you know the teacher–student paradigm, this is a teacher policy. Locomotion shows a basic policy without vision running on our Go2, and Vision v1 is the first deployment of my vision policy on it.",
       ],
       ["Current work lives in the go2_mjlab repo."],
     ],
